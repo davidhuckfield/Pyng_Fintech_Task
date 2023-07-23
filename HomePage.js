@@ -23,11 +23,11 @@ export default function HomePage({ navigation }) {
        
        <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Profile')}>
-            <Text style={styles.buttonText}>Login profile</Text>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
   
           <TouchableOpacity style={styles.button2}>
-            <Text style={styles.buttonText} onPress={() => navigation.navigate('NavBar')}>Sign Up navbar</Text>
+            <Text style={styles.buttonText} onPress={() => navigation.navigate('NavBar')}>Sign Up</Text>
           </TouchableOpacity>
         </View>
         <StatusBar style="auto" />

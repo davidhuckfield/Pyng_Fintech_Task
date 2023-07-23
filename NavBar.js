@@ -18,19 +18,19 @@ export default function NavBar({ navigation }) {
     return (
       <View style={styles.container}>
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('HomePage')}>
-          <Text style={styles.buttonText}>1</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomePage')}>
+          <Image style={styles.image} source={require('./assets/group.png')} resizeMode='contain' />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('HomePage')}>
-          <Text style={styles.buttonText}>2</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomePage')}>
+          <Image style={styles.image} source={require('./assets/send.png')} resizeMode='contain' />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('HomePage')}>
-          <Text style={styles.buttonText}>3</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomePage')}>
+          <Image style={styles.image} source={require('./assets/receive.png')} resizeMode='contain' />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('HomePage')}>
-          <Text style={styles.buttonText}>4</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomePage')}>
+          <Image style={styles.image} source={require('./assets/wallet.png')} resizeMode='contain' />
         </TouchableOpacity>
-        /</View>
+        </View>
         <StatusBar style="auto" />
       </View>
     );
@@ -43,43 +43,25 @@ export default function NavBar({ navigation }) {
       alignItems: 'center',
       justifyContent: 'center',
     },
-    button1: {
+    button: {
         backgroundColor: 'rgb(254,7,200)',
         padding: 10,
         borderRadius: 50,
         margin: 5,
-        width:'100%',
+        width:'15%',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    button2: {
+    navBar: {
       backgroundColor: 'rgb(160,16,163)',
-      padding: 10,
-      borderRadius: 50,
-      margin: 5,
-      width:'100%',
-      alignItems: 'center',
-      justifyContent: 'center',
-  },
-    buttonText: {
-      color: 'white',
-      fontSize: 22,
-      fontFamily: 'Comfortaa',
-    },
-    buttonsContainer: {
+      borderRadius: 25,
       width: '90%',
       padding: 0,
       position:'absolute',
       bottom: 5,
-    },
-    logoContainer: {
-      position: 'absolute',
-      top: 170,
-      alignItems: 'center',
-      width:'100%',
-    },
-    logo: {
-      width: '95%',
+      flex:1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
   });
   
