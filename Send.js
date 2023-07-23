@@ -5,12 +5,12 @@ import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-export default function NavBar({ navigation }) {
+export default function Send({ navigation }) {
 
-  const [fontsLoaded] = useFonts({
-    'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
-    'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
-  });
+    const [fontsLoaded] = useFonts({
+      'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+      'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
+    });
   
     if (!fontsLoaded) {
       return <Text>Loading...</Text>;
@@ -18,14 +18,15 @@ export default function NavBar({ navigation }) {
   
     return (
       <View style={styles.container}>
-      <TouchableOpacity style={styles.profile} onPress={() => navigation.navigate('Profile')}>
-      <Image source={require('./assets/profileicon.png')} resizeMode='contain' />
+      <Text style={styles.headerText}>Send</Text>
+      <TouchableOpacity style={styles.profilehelp} onPress={() => navigation.navigate('Profile')}>
+      <Image source={require('./assets/help_and_profile_icon.png')} resizeMode='contain' />
       </TouchableOpacity>
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomePage')}>
           <Image style={styles.image} source={require('./assets/group.png')} resizeMode='contain' />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('Send')}>
+        <TouchableOpacity style={styles.button2}>
           <Image style={styles.image} source={require('./assets/send.png')} resizeMode='contain' />
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomePage')}>
@@ -45,7 +46,7 @@ export default function NavBar({ navigation }) {
       flex: 1,
       backgroundColor: '#fbfbfb',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
     },
     button: {
         borderRadius: 50,
@@ -73,13 +74,19 @@ export default function NavBar({ navigation }) {
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
-    profile: {
+    profilehelp: {
       position:'absolute',
       top: 10,
       right:10,
       flex:1,
       flexDirection: 'row',
       justifyContent: 'space-between',
+    },
+    headerText: {
+      color: 'black',
+      fontSize: 35,
+      fontFamily: 'Comfortaa-Bold',
+      
     },
   });
   

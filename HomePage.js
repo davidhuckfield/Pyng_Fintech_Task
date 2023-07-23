@@ -8,8 +8,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 export default function HomePage({ navigation }) {
 
     const [fontsLoaded] = useFonts({
-      'Comfortaa': require('./assets/fonts/Comfortaa-VariableFont_wght.ttf'),
-    });
+        'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+        'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
+      });
   
     if (!fontsLoaded) {
       return <Text>Loading...</Text>;
@@ -63,7 +64,7 @@ export default function HomePage({ navigation }) {
     buttonText: {
       color: 'white',
       fontSize: 22,
-      fontFamily: 'Comfortaa',
+      fontFamily: 'Comfortaa-Regular',
     },
     buttonsContainer: {
       width: '90%',

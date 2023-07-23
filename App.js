@@ -7,13 +7,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomePage from './HomePage';
 import Profile from './Profile';
 import NavBar from './NavBar';
+import Send from './Send';
 
 const Stack = createStackNavigator();
 
 export default function App() {
 
   const [fontsLoaded] = useFonts({
-    'Comfortaa': require('./assets/fonts/Comfortaa-VariableFont_wght.ttf'),
+    'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+    'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -26,6 +28,7 @@ export default function App() {
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="NavBar" component={NavBar} />
+        <Stack.Screen name="Send" component={Send} />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>

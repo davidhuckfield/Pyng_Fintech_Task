@@ -5,9 +5,10 @@ import { useFonts } from 'expo-font';
 
 export default function Profile() {
 
-    const [fontsLoaded] = useFonts({
-      'Comfortaa': require('./assets/fonts/Comfortaa-VariableFont_wght.ttf'),
-    });
+  const [fontsLoaded] = useFonts({
+    'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+    'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
+  });
   
     if (!fontsLoaded) {
       return <Text>Loading...</Text>;
@@ -32,7 +33,7 @@ export default function Profile() {
     headerText: {
       color: 'black',
       fontSize: 35,
-      fontFamily: 'Comfortaa',
+      fontFamily: 'Comfortaa-Bold',
     },
     
   });
