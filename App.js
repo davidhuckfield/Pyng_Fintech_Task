@@ -1,8 +1,17 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import { useFonts } from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomePage from './HomePage';
+import Profile from './Profile';
+import NavBar from './NavBar';
+
+const Stack = createStackNavigator();
 
 export default function App() {
+
   const [fontsLoaded] = useFonts({
     'Comfortaa': require('./assets/fonts/Comfortaa-VariableFont_wght.ttf'),
   });
@@ -12,22 +21,14 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-    <View style={styles.logoContainer}>
-      <Image style={styles.logo} source={require('./assets/logo.png')} resizeMode='contain' />
-    </View>
-     
-     <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button1}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button2}>
-          <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
-      </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="HomePage" component={HomePage} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="NavBar" component={NavBar} />
+      </Stack.Navigator>
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
 
