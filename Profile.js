@@ -26,7 +26,7 @@ export default function Profile() {
       flex: 1,
       backgroundColor: '#fbfbfb',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
     },
     
     headerText: {

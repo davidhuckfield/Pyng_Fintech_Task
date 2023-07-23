@@ -22,7 +22,7 @@ export default function HomePage({ navigation }) {
       </View>
        
        <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('Profile')}>
+          <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('NavBar')}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
   

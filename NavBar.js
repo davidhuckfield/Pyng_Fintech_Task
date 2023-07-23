@@ -17,7 +17,9 @@ export default function NavBar({ navigation }) {
   
     return (
       <View style={styles.container}>
-      <Image style={styles.profile} source={require('./assets/profileicon.png')} resizeMode='contain' />
+      <TouchableOpacity style={styles.profile} onPress={() => navigation.navigate('Profile')}>
+      <Image source={require('./assets/profileicon.png')} resizeMode='contain' />
+      </TouchableOpacity>
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomePage')}>
           <Image style={styles.image} source={require('./assets/group.png')} resizeMode='contain' />
