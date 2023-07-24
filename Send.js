@@ -2,10 +2,15 @@ import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import { useFonts } from 'expo-font';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { useState } from 'react';
 
 export default function Send({ navigation }) {
+
+    const [balanceToSend, setBalanceToSend] = useState(0);
+
+    const handleButtonPress = (value) => {
+      
+    }
 
     const [fontsLoaded] = useFonts({
       'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
@@ -33,7 +38,7 @@ export default function Send({ navigation }) {
         </View>
 
         <View style={styles.sendBalanceContainer}>
-          <Text style={styles.sendBalanceText}>£0.00</Text>
+          <Text style={styles.sendBalanceText}>£{balanceToSend.toFixed(2)}</Text>
         </View>
 
         <View style={styles.keypadContainer}>
