@@ -6,11 +6,48 @@ import { useState } from 'react';
 
 export default function Send({ navigation }) {
 
-    const [balanceToSend, setBalanceToSend] = useState(0);
+    const [amount, setAmount] = useState(0);
 
-    const handleButtonPress = (value) => {
-      
-    }
+    const handleChangeAmount = (inputValue) => {
+      console.log("Button pressed:", inputValue)
+
+      if (amount === 0) {
+        setAmount(inputValue);
+        console.log("Amount is ", amount);
+      }
+      else {
+        const newAmount = (amount * 10) + inputValue;
+        setAmount(newAmount);
+        console.log("Amount is ", amount);
+      }
+    };
+
+    const handleDelete = () => {
+      console.log("Delete pressed");
+      if (amount !== 0) {
+
+        const newAmount = Math.floor(amount / 10);
+        setAmount(newAmount);
+        // const amountString = amount.toString();
+        // console.log("amountString is ", amountString);
+        // const slicedString = amountString.slice(0, -1);
+        // console.log("slicedString is ", slicedString);
+        // const newAmount = parseFloat(slicedString / 10);
+        // console.log("newAmount is ", newAmount);
+
+        // if (newAmount.length !== 0) {
+        // setAmount(newAmount);
+        // }
+      }
+    };
+
+    const formatAmount = (amount) => {
+      const amountString = amount.toString();
+      const integerPart = amountString.slice(0, -2);
+      const decimalPart = amountString.slice(-2).padStart(2, '0');
+      const formattedIntegerPart = integerPart.length === 0 ? '0' : integerPart;
+      return `£${formattedIntegerPart}.${decimalPart}`;
+    };
 
     const [fontsLoaded] = useFonts({
       'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
@@ -38,48 +75,48 @@ export default function Send({ navigation }) {
         </View>
 
         <View style={styles.sendBalanceContainer}>
-          <Text style={styles.sendBalanceText}>£{balanceToSend.toFixed(2)}</Text>
+          <Text style={styles.sendBalanceText}>{formatAmount(amount)}</Text>
         </View>
 
         <View style={styles.keypadContainer}>
           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(1)}>
               <Text style={styles.keypadButtonText}>1</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(2)}>
               <Text style={styles.keypadButtonText}>2</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(3)}>
               <Text style={styles.keypadButtonText}>3</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(4)}>
               <Text style={styles.keypadButtonText}>4</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(5)}>
               <Text style={styles.keypadButtonText}>5</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(6)}>
               <Text style={styles.keypadButtonText}>6</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(7)}>
               <Text style={styles.keypadButtonText}>7</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(8)}>
               <Text style={styles.keypadButtonText}>8</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(9)}>
               <Text style={styles.keypadButtonText}>9</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleDelete()}>
               <Image source={require('./assets/Delete_Key.png')} resizeMode='contain' />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
+            <TouchableOpacity style={styles.keypadButton} onPress={() => handleChangeAmount(0)}>
               <Text style={styles.keypadButtonText}>0</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.keypadButton}>
