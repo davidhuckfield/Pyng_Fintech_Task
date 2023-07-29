@@ -12,5 +12,9 @@ Would possibly change the structure to make the NavBar and viewing window direct
 
 Unsure if the Send button being pink is an intentional way of highlighting it or whether this should indicate that button is being pressed and/or that's the current page the user is on. If the latter, can make changes to show whichever button / section is currently selected as pink. (have already disabled the Send button on the Send page for this reason)
 
+Quest 4 now almost completed, number and delete buttons appear to function correctly after testing. 
+
+Still working on cursor / users being able to edit number by clicking / tapping into a certain point
+
 
 
